@@ -36,8 +36,8 @@ class RobotTank :
 
     def update(axisL, axisR) :
         
-        lDutyCycle = numpy.interp(axisL, [1, -1], [3, 8])
-        rDutyCycle = numpy.interp(axisR, [1, -1], [3, 8])
+        lDutyCycle = numpy.interp(axisL, [1, -1], [6.7, 7.3])
+        rDutyCycle = numpy.interp(axisR, [1, -1], [6.7, 7.3])
 
         if (abs(axisL) < RobotTank.axisDeadzone) :
             RobotTank.lMotor.ChangeDutyCycle(0)
