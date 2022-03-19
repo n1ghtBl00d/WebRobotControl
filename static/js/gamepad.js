@@ -20,6 +20,19 @@ function rcEnableCheck() {
     }
     else {
         clearInterval(timer)
+        $.ajax({
+            url: "/stop",
+            data: "STOP!!!!!!!!!!",
+            type:'POST',
+            contentType: "application/text",
+            success: function(response) {
+                console.log(response);
+                console.log("Stopped")
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
     }
 }
 
@@ -32,7 +45,9 @@ function gpStatusSender() {
 
     var gpData = {
         axisX : gamepad.axes[0],
-        axisY : gamepad.axes[1]
+        axisY : gamepad.axes[1],
+        buttonUp : gamepad.buttons[12].value,
+        buttonDown : gamepad.buttons[13].value
     }
 
     $.ajax({
