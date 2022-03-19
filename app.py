@@ -2,7 +2,8 @@ from crypt import methods
 from urllib import response
 from flask import Flask, render_template, request, redirect, url_for, make_response
 import socket
-from control import RobotControl
+from RobotRC import RobotRC
+from RobotTank import RobotTank as RobotControl
 
 RobotControl.setup()
 
@@ -16,12 +17,17 @@ def index():
 @app.route('/gamepad', methods=['POST'])
 def interpretControls():
     
-    axisX = request.json['axisX']
-    axisY = request.json['axisY']
-    buttonUp = request.json['buttonUp']
-    buttonDown = request.json['buttonDown']
+    # Axes for Arcade/Balancing
+    # axisX = request.json['axisX']
+    # axisY = request.json['axisY']
 
-    RobotControl.update(axisX, axisY, buttonUp, buttonDown)
+    axisL = request.json['axisL']
+    axisR = request.json['axisR']
+    # buttonUp = request.json['buttonUp']
+    # buttonDown = request.json['buttonDown']
+
+    # RobotControl.update(axisX, axisY, buttonUp, buttonDown)
+    RobotControl.update(axisL, axisR)
 
     response = make_response(redirect(url_for('index')))
     return(response)

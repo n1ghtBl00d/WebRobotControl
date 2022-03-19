@@ -3,7 +3,7 @@ import numpy
 import atexit
 
 
-class RobotControl : 
+class RobotRC : 
 
     pwm = -1
 
@@ -27,9 +27,9 @@ class RobotControl :
 
         GPIO.setmode(GPIO.BOARD)
 
-        GPIO.setup(RobotControl.pinList, GPIO.OUT)
+        GPIO.setup(RobotRC.pinList, GPIO.OUT)
 
-        atexit.register(RobotControl.endControl)
+        atexit.register(RobotRC.endControl)
  
 
         return 0
@@ -42,31 +42,31 @@ class RobotControl :
         right = 0
         left = 0
 
-        if(axisY > RobotControl.axisTolerance) :
+        if(axisY > RobotRC.axisTolerance) :
             backward = 1
-        elif(axisY < (RobotControl.axisTolerance * -1)) :
+        elif(axisY < (RobotRC.axisTolerance * -1)) :
             forward = 1
 
-        if(axisX > RobotControl.axisTolerance) :
+        if(axisX > RobotRC.axisTolerance) :
             right = 1
-        elif(axisX < (RobotControl.axisTolerance * -1)) :
+        elif(axisX < (RobotRC.axisTolerance * -1)) :
             left = 1
 
         if(tiltUp == 1) :
-            RobotControl.tilt = 1
+            RobotRC.tilt = 1
         if(tiltDown == 1) :
-            RobotControl.tilt = 0
-        GPIO.output(RobotControl.fPin, forward)
-        GPIO.output(RobotControl.bPin, backward)
-        GPIO.output(RobotControl.rPin, right)
-        GPIO.output(RobotControl.lPin, left)
-        GPIO.output(RobotControl.tiltPin, RobotControl.tilt)
+            RobotRC.tilt = 0
+        GPIO.output(RobotRC.fPin, forward)
+        GPIO.output(RobotRC.bPin, backward)
+        GPIO.output(RobotRC.rPin, right)
+        GPIO.output(RobotRC.lPin, left)
+        GPIO.output(RobotRC.tiltPin, RobotRC.tilt)
 
         return 0
 
     def stop() :
 
-        GPIO.output(RobotControl.pinList, 0)
+        GPIO.output(RobotRC.pinList, 0)
 
 
     def endControl() :

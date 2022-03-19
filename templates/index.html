@@ -5,12 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js" ></script>
         <script type="text/javascript" src="/static/js/gamepad.js" ></script>
+
+        <style>
+            button {
+                margin-right: 10px;
+            }
+        </style>
     </head>
     <body>
         <h1>Robot Control</h1>
         <br>
+        <!-- <p>Initialize Robot Libraries</p>
+        <p>
+            <button id="enableRC">Self-Balance</button>
+            <button id="enableTank">Tank Drive</button>
+        </p>
+        <br>
+        <br>
+        <p>Robot Type Initialized: <span id="RobotLib">None</span></p>
+        <button id="ResetRobotLib">Reset</button> -->
         <br>
         <p>Enable Remote Control:</p>
-        <input type="checkbox" id="listenerActive" value="unchecked" style="padding-left: 10px">
+        <input type="checkbox" id="listenerActive" value="unchecked" style="padding-left: 10px" >
     </body>
 </html>
