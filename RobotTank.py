@@ -21,19 +21,19 @@ class RobotTank:
         #lMotor.motor = gpio.Motor(forward = lMotorA, backward= lMotorB)
         #rMotor.motor = gpio.Motor(forward = rMotorA, backward= rMotorB)
 
-        RobotZTank.robot = gpio.Robot(left=(RobotZTank.lMotorA, RobotZTank.lMotorB, RobotZTank.lMotorEN), right=(RobotZTank.rMotorA, RobotZTank.rMotorB, RobotZTank.rMotorEN))
+        RobotTank.robot = gpio.Robot(left=(RobotTank.lMotorA, RobotTank.lMotorB, RobotTank.lMotorEN), right=(RobotTank.rMotorA, RobotTank.rMotorB, RobotTank.rMotorEN))
 
     def update(axisL, axisR):
 
-        if (abs(axisL) < RobotZTank.axisDeadzone):
+        if (abs(axisL) < RobotTank.axisDeadzone):
             axisL = 0
-        if (abs(axisR) < RobotZTank.axisDeadzone):
+        if (abs(axisR) < RobotTank.axisDeadzone):
             axisR = 0
         
-        RobotZTank.robot.value = (axisL, axisR)
+        RobotTank.robot.value = (axisL, axisR)
 
     def stop():
-        RobotZTank.robot.value = (0,0)
+        RobotTank.robot.value = (0,0)
 
     def endControl():
         gpio.close()
