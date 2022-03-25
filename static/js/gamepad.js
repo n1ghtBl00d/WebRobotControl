@@ -16,7 +16,7 @@ function rcEnableCheck() {
     var isChecked = document.getElementById('listenerActive').checked;
 
     if(isChecked == true) {
-        timer = setInterval(gpStatusSender, 500);
+        timer = setInterval(gpStatusSender, 50);
     }
     else {
         clearInterval(timer)

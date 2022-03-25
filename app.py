@@ -2,7 +2,7 @@ from crypt import methods
 from urllib import response
 from flask import Flask, render_template, request, redirect, url_for, make_response
 import socket
-from RobotRC import RobotRC
+#from RobotRC import RobotRC as RobotControl
 from RobotTank import RobotTank as RobotControl
 
 RobotControl.setup()
@@ -20,7 +20,6 @@ def interpretControls():
     # Axes for Arcade/Balancing
     # axisX = request.json['axisX']
     # axisY = request.json['axisY']
-
     axisL = request.json['axisL']
     axisR = request.json['axisR']
     # buttonUp = request.json['buttonUp']
