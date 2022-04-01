@@ -16,7 +16,7 @@ function rcEnableCheck() {
     var isChecked = document.getElementById('listenerActive').checked;
 
     if(isChecked == true) {
-        timer = setInterval(gpStatusSender, 50);
+        timer = setInterval(gpStatusSender, 200);
     }
     else {
         clearInterval(timer)
@@ -54,7 +54,7 @@ function gpStatusSender() {
     //This is the Data object for Tank Drive
     var gpData = {
         axisL : gamepad.axes[1],
-        axisR : gamepad.axes[3]
+        axisR : gamepad.axes[0]
     }
 
     $.ajax({

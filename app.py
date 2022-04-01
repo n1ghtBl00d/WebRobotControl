@@ -3,7 +3,8 @@ from urllib import response
 from flask import Flask, render_template, request, redirect, url_for, make_response
 import socket
 #from RobotRC import RobotRC as RobotControl
-from RobotTank import RobotTank as RobotControl
+#from RobotTank import RobotTank as RobotControl
+from RobotArcade import RobotArcade as RobotControl
 
 RobotControl.setup()
 
