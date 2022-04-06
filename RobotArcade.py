@@ -16,9 +16,9 @@ class RobotArcade:
     robot = -1
 
     axisDeadzone = 0.25
-    maxSpeed = 0.8
-    inputMultiplierY = 0.6
-    inputMultiplierX = 0.4
+    maxSpeed = .8
+    inputMultiplierY = .8
+    inputMultiplierX = .5
 
     def setup():
         #lMotor.motor = gpio.Motor(forward = lMotorA, backward= lMotorB)

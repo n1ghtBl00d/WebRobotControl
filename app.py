@@ -1,7 +1,7 @@
 from crypt import methods
 from urllib import response
 from flask import Flask, render_template, request, redirect, url_for, make_response
-import socket
+from flask_socketio import SocketIO
 #from RobotRC import RobotRC as RobotControl
 #from RobotTank import RobotTank as RobotControl
 from RobotArcade import RobotArcade as RobotControl
@@ -9,6 +9,7 @@ from RobotArcade import RobotArcade as RobotControl
 RobotControl.setup()
 
 app = Flask(__name__)
+socketio = SocketIO(app)
 
 @app.route("/")
 def index():
@@ -39,3 +40,12 @@ def stopRobot():
 
     response = make_response(redirect(url_for('index')))
     return(response)
+
+@socketio.on('Stop')
+def handleStop(data):
+    RobotControl.stop()
+
+@socketio.on('robotControl')
+def handleControl(data):
+    print(data)
+    RobotControl.update(data['axisL'], data['axisR'])

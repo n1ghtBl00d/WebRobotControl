@@ -4,7 +4,9 @@
         <title>Robot Control</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js" ></script>
+        <script type="text/javascript" src="/static/js/socket.io.min.js"></script>
         <script type="text/javascript" src="/static/js/gamepad.js" ></script>
+        <script type="text/javascript" src="/static/js/gamepadSocket.js"></script>
 
         <style>
             button {
@@ -27,5 +29,6 @@
         <br>
         <p>Enable Remote Control:</p>
         <input type="checkbox" id="listenerActive" value="unchecked" style="padding-left: 10px" >
+        <input type="checkbox" id="listenerSocketActive" value="unchecked" style="padding-left: 10px" >
     </body>
 </html>
