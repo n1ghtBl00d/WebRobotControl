@@ -1,12 +1,17 @@
 window.timer = 0;
 
 const socket = io()
+var imageFeed = -1
+var imgData = -1
 
 document.addEventListener('DOMContentLoaded', function(){
 
     console.log("Loaded Socket")
+    imageFeed = document.getElementById('camFeed')
     // document.getElementById('ResetRobotLib').addEventListener('click', resetRobotLib)
     document.getElementById('listenerSocketActive').addEventListener("click", socketEnableCheck);
+    document.getElementById('startCam').addEventListener("click", startCam);
+    document.getElementById('stopCam').addEventListener("click", stopCam);
 });
 
 function socketEnableCheck() {
@@ -42,3 +47,22 @@ function socketStatusSender() {
     socket.emit("robotControl", gpData)
 
 }
+
+function startCam() {
+    console.log("StartCam()")
+    socket.emit("startCamera", "Start")
+}
+function stopCam() {
+    console.log("stopCam()")
+    socket.emit("stopCamera", "Stop")
+}
+
+socket.on("camera", (data) => {
+    imgData = data
+    console.log("Image Data: " + data.imgString)
+    if (data.imgString != null)
+    {
+        imageFeed.src = data.imgString
+    }
+    
+})
