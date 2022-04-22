@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function(){
     console.log("Loaded Socket")
     imageFeed = document.getElementById('camFeed')
     // document.getElementById('ResetRobotLib').addEventListener('click', resetRobotLib)
-    document.getElementById('listenerSocketActive').addEventListener("click", socketEnableCheck);
+    document.getElementById('listenerActive').addEventListener("click", socketEnableCheck);
     document.getElementById('startCam').addEventListener("click", startCam);
     document.getElementById('stopCam').addEventListener("click", stopCam);
 });
