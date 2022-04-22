@@ -14,13 +14,13 @@ document.addEventListener('DOMContentLoaded', function(){
     document.getElementById('stopCam').addEventListener("click", stopCam);
 });
 
-function socketEnableCheck() {
+function enableCheck() {
     console.log("entered socketEnableCheck")
 
-    var isChecked = document.getElementById('listenerSocketActive').checked;
+    var isChecked = document.getElementById('listenerActive').checked;
 
     if(isChecked == true) {
-        timer = setInterval(socketStatusSender, 200);
+        timer = setInterval(statusSender, 200);
     }
     else
     {
@@ -32,16 +32,36 @@ function socketEnableCheck() {
 
 }
 
-function socketStatusSender() {
+function statusSender() {
 
-    console.log("Entered gpStatusSender()")
+    console.log("Entered statusSender()")
 
     gamepad = navigator.getGamepads()[0];
 
     
     var gpData = {
-        axisL : gamepad.axes[1],
-        axisR : gamepad.axes[0]
+        axisLx : gamepad.axes[0],
+        axisLy : gamepad.axes[1],
+        axisRx : gamepad.axes[2],
+        axisRy : gamepad.axes[3],
+        btnUp : gamepad.buttons[0],
+        btnDown : gamepad.buttons[1],
+        btnLeft : gamepad.buttons[2],
+        btnRight : gamepad.buttons[3],
+        btnA : gamepad.buttons[4],
+        btnB : gamepad.buttons[5],
+        btnX : gamepad.buttons[6],
+        btnY : gamepad.buttons[7],
+        btnStart : gamepad.buttons[8],
+        btnBack : gamepad.buttons[9],
+        btnXbox : gamepad.buttons[10],
+        btnLB : gamepad.buttons[11],
+        btnRB : gamepad.buttons[12],
+        btnLT : gamepad.buttons[13],
+        btnRT : gamepad.buttons[14],
+        btnLjoystick : gamepad.buttons[15],
+        btnRjoystick : gamepad.buttons[16]
+        
     }
 
     socket.emit("robotControl", gpData)

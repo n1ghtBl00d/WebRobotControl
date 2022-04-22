@@ -41,26 +41,6 @@ cameraThread = threading.Thread(target=cameraLoop, daemon=True)
 def index():
     return render_template('index.html')
 
-
-@app.route('/gamepad', methods=['POST'])
-def interpretControls():
-    
-    # Axes for Arcade Drive
-    axisL = request.json['axisL']
-    axisR = request.json['axisR']
-    RobotControl.update(axisL, axisR)
-
-    response = make_response(redirect(url_for('index')))
-    return(response)
-    
-@app.route('/stop', methods=['POST'])
-def stopRobot():
-
-    RobotControl.stop()
-
-    response = make_response(redirect(url_for('index')))
-    return(response)
-
 @socketio.on('Stop')
 def handleStop(data):
     RobotControl.stop()
@@ -68,7 +48,7 @@ def handleStop(data):
 @socketio.on('robotControl')
 def handleControl(data):
     #print(data)
-    RobotControl.update(data['axisL'], data['axisR'])
+    RobotControl.update(data['axisLx'], data['axisLx'])
 
 @socketio.on('startCamera')
 def startCam(data):
