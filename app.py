@@ -7,7 +7,8 @@ import threading
 import cv2
 import base64
 
-from RobotArcade import RobotArcade as RobotControl
+#from RobotArcade import RobotArcade as RobotControl
+from RobotMecanum import RobotMecanum as RobotControl
 
 RobotControl.setup()
 
@@ -48,7 +49,7 @@ def handleStop(data):
 @socketio.on('robotControl')
 def handleControl(data):
     #print(data)
-    RobotControl.update(data['axisLx'], data['axisLx'])
+    RobotControl.update(data['axisLy'], data['axisLx'], data['axisRx'])
 
 @socketio.on('startCamera')
 def startCam(data):
