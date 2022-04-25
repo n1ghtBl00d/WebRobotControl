@@ -48,19 +48,27 @@ class RobotMecanum:
         axisLx = axisLx * RobotMecanum.inputMultiplierX
         axisRx = axisRx * RobotMecanum.inputMultiplierRotate
         
-        valFL = axisLy - axisLx + axisRx
-        valFR = axisLy + axisLx + axisRx
-        valBL = axisLy - axisLx - axisRx
-        valBR = axisLy + axisLx - axisRx
+        valFL = axisLx + axisRx - axisLy
+        valFR = axisLx - axisRx - axisLy
+        valBL = axisLx - axisRx + axisLy
+        valBR = axisLx + axisRx + axisLy
 
-        if(valL > RobotMecanum.maxSpeed) :
-            valL = RobotMecanum.maxSpeed
-        if(valR > RobotMecanum.maxSpeed) :
-            valR = RobotMecanum.maxSpeed
-        if(valL < -RobotMecanum.maxSpeed) :
-            valL = -RobotMecanum.maxSpeed
-        if(valR < -RobotMecanum.maxSpeed) :
-            valR = -RobotMecanum.maxSpeed
+        if(valFL > RobotMecanum.maxSpeed) :
+            valFL = RobotMecanum.maxSpeed
+        if(valFR > RobotMecanum.maxSpeed) :
+            valFR = RobotMecanum.maxSpeed
+        if(valFL < -RobotMecanum.maxSpeed) :
+            valFL = -RobotMecanum.maxSpeed
+        if(valFR < -RobotMecanum.maxSpeed) :
+            valFR = -RobotMecanum.maxSpeed
+        if(valBL > RobotMecanum.maxSpeed) :
+            valBL = RobotMecanum.maxSpeed
+        if(valBR > RobotMecanum.maxSpeed) :
+            valBR = RobotMecanum.maxSpeed
+        if(valBL < -RobotMecanum.maxSpeed) :
+            valBL = -RobotMecanum.maxSpeed
+        if(valBR < -RobotMecanum.maxSpeed) :
+            valBR = -RobotMecanum.maxSpeed
 
         RobotMecanum.frontRobot.value = (valFL, valFR)
         RobotMecanum.backRobot.value = (valBL, valBR)
