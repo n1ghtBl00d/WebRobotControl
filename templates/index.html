@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Robot Control</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js" ></script>
-        <script type="text/javascript" src="/static/js/socket.io.min.js"></script>
-        <script type="text/javascript" src="/static/js/gamepad.js" ></script>
 
-        <style>
-            button {
-                margin-right: 10px;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Robot Control</h1>
-        <br>
-        <!-- <p>Initialize Robot Libraries</p>
-        <p>
-            <button id="enableRC">Self-Balance</button>
-            <button id="enableTank">Tank Drive</button>
-        </p>
-        <br>
-        <br>
-        <p>Robot Type Initialized: <span id="RobotLib">None</span></p>
-        <button id="ResetRobotLib">Reset</button> -->
-        <br>
-        <p>Enable Remote Control:</p>
-        <input type="checkbox" id="listenerActive" value="unchecked" style="padding-left: 10px" >\
-        <br>
-        <br>
-        <img id="camFeed" src="">
-        <button id="startCam">Start Camera</button><button id="stopCam">Stop Camera</button>
-    </body>
+<head>
+    <title>Robot Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/static/js/socket.io.min.js"></script>
+    <script type="text/javascript" src="/static/js/gamepad.js"></script>
+
+    <style>
+        button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Robot Controls</h1>
+    <hr>
+    <div style="text-align: center;">
+        <div style="width: 50%; float: left;">
+            <span>Enable Remote Control:</span>
+            <input type="checkbox" id="listenerActive" value="unchecked" style="margin-left: 10px;transform: scale(2)">
+        </div>
+        <div style="width: 50%; float: right;">
+            <button id="startCam">Start Camera</button><button id="stopCam">Stop Camera</button>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <img id="camFeed" src="" style="width:50%;margin:auto;">
+</body>
+
 </html>
