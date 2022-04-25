@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded', function(){
     console.log("Loaded Socket")
     imageFeed = document.getElementById('camFeed')
     // document.getElementById('ResetRobotLib').addEventListener('click', resetRobotLib)
-    document.getElementById('listenerActive').addEventListener("click", socketEnableCheck);
+    document.getElementById('listenerActive').addEventListener("click", enableCheck);
     document.getElementById('startCam').addEventListener("click", startCam);
     document.getElementById('stopCam').addEventListener("click", stopCam);
 });
 
 function enableCheck() {
-    console.log("entered socketEnableCheck")
+    console.log("entered enableCheck")
 
     var isChecked = document.getElementById('listenerActive').checked;
 
