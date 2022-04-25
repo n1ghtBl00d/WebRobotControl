@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Joystick Controls</title>
+    <style>
+        body {
+            font-family: Courier, monospaced;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/static/js/socket.io.min.js"></script>
+    <script type="text/javascript" src="/static/js/JoystickController.js"></script>
+    <script type="text/javascript" src="/static/js/joystick.js" defer="true"></script>
+</head>
+
+<body>
+
+    <h1>Robot Joystick Controls</h1>
+    <hr>
+    <div style="text-align: center;">
+        <div style="width: 50%; float: left;">
+            <span>Enable Remote Control:</span>
+            <input type="checkbox" id="listenerActive" value="unchecked" style="margin-left: 10px;transform: scale(2)">
+        </div>
+        <div style="width: 50%; float: right;">
+            <button id="startCam">Start Camera</button><button id="stopCam">Stop Camera</button>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <img id="camFeed" src="" style="width:50%;margin:auto;">
+
+    <div style="border: 1px solid red; width: 128px; position: fixed; left:100px; bottom:100px;">
+        <img src="/static/images/joystick-base.png" />
+        <div id="stick1" style="position: absolute; left:32px; top:32px;">
+            <img src="/static/images/joystick-red.png" />
+        </div>
+    </div>
+
+    <div style="border: 1px solid blue; width: 128px; position: fixed; right:100px; bottom:100px;">
+        <img src="/static/images/joystick-base.png" />
+        <div id="stick2" style="position: absolute; left:32px; top:32px;">
+            <img src="/static/images/joystick-blue.png" />
+        </div>
+    </div>
+</body>
+
+</html>

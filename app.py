@@ -42,6 +42,10 @@ cameraThread = threading.Thread(target=cameraLoop, daemon=True)
 def index():
     return render_template('index.html')
 
+@app.route("/touch")
+def touch():
+    return render_template('touch.html')
+
 @socketio.on('Stop')
 def handleStop(data):
     RobotControl.stop()
