@@ -46,6 +46,10 @@ def index():
 def touch():
     return render_template('touch.html')
 
+@app.route("/keeb")
+def keeb():
+    return render_template('keyboard.html')
+
 @socketio.on('Stop')
 def handleStop(data):
     RobotControl.stop()

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Joystick Controls</title>
+    <style>
+        body {
+            font-family: Courier, monospaced;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/static/js/socket.io.min.js"></script>
+    <script type="text/javascript" src="/static/js/keydrown.min.js" defer="true"></script>
+    <script type="text/javascript" src="/static/js/keyboard.js" defer="true"></script>
+</head>
+
+<body>
+
+    <h1>Robot Keyboard Controls</h1>
+    <hr>
+    <div style="text-align: center;">
+        <div style="width: 50%; float: left;">
+            <span>Enable Remote Control:</span>
+            <input type="checkbox" id="listenerActive" value="unchecked" style="margin-left: 10px;transform: scale(2)">
+        </div>
+        <div style="width: 50%; float: right;">
+            <button id="startCam">Start Camera</button><button id="stopCam">Stop Camera</button>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <img id="camFeed" src="" style="width:50%;margin:auto;">
+</body>
+
+</html>
